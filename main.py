@@ -3,7 +3,8 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from dotenv import load_dotenv
 import os
-
+import uvicorn
+    
 load_dotenv()  # Load .env file
 
 DB_USER = os.getenv("user")
@@ -39,6 +40,10 @@ def get_sns_data():
             return rows
     except Exception as e:
         return {"error": str(e)}
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False)
+
 
 @app.get("/test")
 def test():

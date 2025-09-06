@@ -41,10 +41,12 @@ def get_sns_data():
     except Exception as e:
         return {"error": str(e)}
 
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False)
-
 
 @app.get("/test")
 def test():
     return {"message": "Hello, World!"}
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False)
+
+

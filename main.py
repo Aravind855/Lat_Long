@@ -20,7 +20,7 @@ try:
         password=DB_PASSWORD,
         host=DB_HOST,
         port=DB_PORT,
-        database=DB_NAME,
+        database=DB_NAME   ,
         sslmode="require"
     )
     print("Connected to Supabase successfully!")
@@ -39,3 +39,7 @@ def get_sns_data():
             return rows
     except Exception as e:
         return {"error": str(e)}
+
+@app.get("/test")
+def test():
+    return {"message": "Hello, World!"}
